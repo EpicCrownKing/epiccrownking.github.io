@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<script src="../common.js"></script>
+		<link rel="stylesheet" href="../style.css"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	
+	<body>
+		<p>Namespace: </p><input type="text" id="namespace"><br>
+		<p>Name(Spaces allowed): </p><input type="text" id="name"><br>
+		<p>Tooltip: </p><input type="text" id="tooltip"><br>
+		<p>Damage: </p><input type="number" id="damage"><br>
+		<p>Knockback: </p><input type="number" id="knockback"><br>
+		<p>Width: </p><input type="number" id="width"><br>
+		<p>Height: </p><input type="number" id="height"><br>
+		<p>Use Time: </p><input type="number" id="useTime"><br>
+		<p>Value: </p><input type="number" id="value"><br>
+		<p>Rarity: </p><input type="number" id="rarity"><br>
+		<p>Crit Chance: </p><input type="number" id="crit"><br>
+		<p>Auto Reuse: </p><input type="checkbox" id="autoReuse"><br>
+		<p>Use Sound: </p><input type="number" id="useSound"><br>
+		
+		<p>Debuff(leave blank for none):</p><input type="text" id="debuff"><br>
+		<p>Debuff Length(ignore if Debuff is nothing):</p><input type="text" id="debuffLength"><br>
+		
+		<p>Projectile(leave blank for none):</p><input type="text" id="projectile"><br>
+		
+		<button type="button" onclick="returnSwordCode" id="outputButton">Generate</button>
+		
+		<p id="output"></p>
+		
+		<script>
+			document.getElementById("outputButton").addEventListener("click", returnSwordCode, false);
+			function returnSwordCode()
+			{
+				camelcaseName = $("#name").val().replace(/\s/g, '');
+				
+				var text = sources + 'namespace ' + $("#namespace").val() + ' {  \
+				public class ' + camelcaseName + ' : ModItem {   \
+				public override void SetStaticDefaults() { \
+					DisplayName.SetDefault("' + $("#name").val() + '"); \
+					Tooltip.SetDefault("' + $("#tooltip").val() + '"); \
+				} \
+				public override void SetDefaults() { \
+					item.damage = ' + $("#damage").val() + '; \
+					item.melee = true; \
+					item.width = ' + $("#width").val() + '; \
+					item.height = ' + $("#height").val() + '; \
+					item.useTime = ' + $("#useTime").val() + '; \
+					item.useAnimation = ' + $("#useTime").val() + '; \
+					item.knockBack = ' + $("#knockback").val() + '; \
+					item.value = ' + $("#value").val() + '; \
+					item.rare = ' + $("#rarity").val() + '; \
+					item.UseSound = SoundID.Item' + $("#useSound").val() + '; \
+					item.autoReuse = ' + $("#autoReuse").val() + '; \
+					item.crit = ' + $("#crit").val() + '; \
+					item.useStyle = 1;';
+					if($("#projectile").val() != null)
+					{
+						text += 'item.shoot = ' + $("#projectile").val() + ';';
+					}
+				text +='}';
+				
+				if($("#inflictDebuff").val() != null)
+				{
+					text += 'public override void OnHitNPC(Player player, NPC target, int damage, float knockback, bool crit) { \
+					target.AddBuff(BuffID.' + $("#debuff").val() + ', ' + $("#debuffLength").val() + '); \
+					} '
+				}
+				
+				text += " } }"
+				
+				document.getElementById("output").innerHTML = text;
+				console.log(text);
+			}
+		</script>
+	</body>
+</html>
