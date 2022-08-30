@@ -1,11 +1,11 @@
 body{
-	background-color: pink;
+	background-color: skyblue;
 	text-align: center;
 }
 input{
 	border-radius: 3;
 	border: 2px solid black;
-	background-color: purple;
+	background-color: cyan;
 	text-align:center;
 	color: white;
 }
