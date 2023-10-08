@@ -2,16 +2,179 @@
 
 <html>
     <head>
-        <link href="style.css" rel="stylesheet">
-
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="jquery.keyframes.js"></script>
     </head>
 
     <body>
-        <img id="imageToConvert" src="" style="display: none;">
+        <style>
+            @keyframes working {
+    from
+    {
+        background-position:5% 50%;
+        color: #1C1C1C;
+        border-color: #1C1C1C;
+    }
+    to
+    {
+        background-position:95% 50%;
+        color: #1C1C1C;
+        border-color: #1C1C1C;
+    }
+}
+
+@keyframes break {
+    from {
+        background-position:95% 50%;
+        color: #FAFAFF;
+        border-color: #FAFAFF;
+    }
+    to {
+        background-position:5% 50%;
+        color: #FAFAFF;
+        border-color: #FAFAFF;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+
+
+body {
+    font-family: 'Roboto Slab', serif;
+
+    font-weight: 500;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+#pomodoro
+{
+    background-image: linear-gradient(to bottom right, #525252, #ECEBE4);
+}
+
+#todo
+{
+    background-image: linear-gradient(to bottom right, #525252, #ECEBE4);
+}
+
+#start {
+    color: #1C1C1C;
+    border-radius: 0px;
+    border: none;
+    text-decoration: none;
+    background-color: #EEF0F2;
+
+    font-size: 48px;
+    
+    transition-duration: 0.2s;
+}
+
+#countdown {
+    color: #1C1C1C;
+    border-radius: 0px;
+    border: none;
+    text-decoration: none;
+
+    background: linear-gradient(90deg, #1C1C1C, #525252, #DADDD8, #EEF0F2, #FAFAFF);
+    background-size: 500% 100%;
+
+    font-size: 48px;
+
+    background-position: 5% 0%;
+}
+
+#start:hover {
+    background-color: #DADDD8;
+}
+
+#todo-header {
+    color: #1C1C1C;
+    border-radius: 0px;
+    text-decoration: none;
+    background-color: #EEF0F2;
+
+    font-size: 48px;
+
+    padding: 1px;
+
+    border: none;
+
+    font-size: 48px;
+}
+
+#todo-body {
+    color: #1C1C1C;
+    border-radius: 0px;
+    text-decoration: none;
+    background-color: #EEF0F2;
+
+    font-size: 48px;
+}
+
+#todo-add
+{
+    border-radius: 0px;
+
+    color: #FAFAFF;
+    
+    border: none;
+
+    font-size: 32px;
+
+    background-color: #1C1C1C;
+}
+
+#task-name
+{
+    color: #525252;
+    border-radius: 0px;
+    border: none;
+    text-decoration: none;
+    background-color: #1C1C1C;
+
+    font-size: 32px;
+}
+
+#task-name:focus
+{
+    outline: none;
+    border: none;
+}
+
+.todo-remove
+{
+    border-radius: 0px;
+    
+    border: none;
+
+    font-size: 32px;
+
+    color: #FAFAFF;
+
+    background-color: #1C1C1C;
+}
+
+.task-text {
+    color: #FAFAFF;
+    border-radius: 0px;
+    border: none;
+    text-decoration: none;
+    background-color: #1C1C1C;
+
+    font-size: 32px;
+}
+
+input, button, span, p, h1 {
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+}
+        </style>
         
         <div class="container-fluid d-flex h-100 flex-column g-0">
             <div class="row flex-grow-1 g-0">
