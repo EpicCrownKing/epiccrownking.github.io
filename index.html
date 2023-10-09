@@ -84,7 +84,7 @@ body {
     background-position: 5% 0%;
 }
 
-#start, #reset:hover {
+#start:hover, #reset:hover {
     background-color: #DADDD8;
 }
 
@@ -127,7 +127,7 @@ body {
     transition-duration: 0.2s;
 }
 
-#todo-add, .todo-remove:hover
+#todo-add:hover, .todo-remove:hover
 {
     color: #525252;
 }
@@ -320,6 +320,9 @@ input, button, span, p, h1 {
         <script>
             $("#todo-add").on("click", function() {
                 var taskName = document.getElementById('task-name').value;
+
+                if(taskName == "") return;
+                
                 var taskID = taskName.replaceAll(/[&\/\\#,+()$~%.'":* ?<>{}]/g, '_');
 
                 document.getElementById('task-name').value = "";
