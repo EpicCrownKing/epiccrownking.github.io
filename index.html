@@ -182,11 +182,15 @@ input, button, span, p, h1 {
                 <div id="pomodoro" class="col-9 g-0">
                     <div class="container-fluid d-flex h-100 flex-column g-0">
                         <div id="timer" class="row g-0">
-                            <div class="col-3 g-0">
-                                <button id="start">Start Timer</button>
+                            <div class="col-4 g-0" id="start-wrapper">
+                                <button id="start">Start</button>
+                            </div>
+                            <div class="col-2 g-0" id="reset-wrapper">
+                                <button id="reset">Reset</button>
                             </div>
 
-                            <div class="col-9 g-0">
+
+                            <div class="col-8 g-0">
                                 <span id="countdown" class="d-inline-block align-middle">25:00</span>
                             </div>
                         </div>
@@ -299,11 +303,20 @@ input, button, span, p, h1 {
                         paused = !paused;
                     }
 
-                    if(paused) document.getElementById("start").textContent = "Start Timer";
-                    if(!paused) document.getElementById("start").textContent = "Pause Timer";
+                    if(paused) 
+                    {
+                        document.getElementById('reset-wrapper').hidden = true;
+                        document.getElementById('start-wrapper').classList = "col-4 g-0";
 
-                    //document.getElementById("start").style.opacity = "0.6";
-                    //document.getElementById("start").style.cursor = "not-allowed";
+                        document.getElementById("start").textContent = "Start";
+                    }
+                    if(!paused) 
+                    {
+                        document.getElementById('reset-wrapper').hidden = false;
+                        document.getElementById('start-wrapper').classList = "col-2 g-0";
+
+                        document.getElementById("start").textContent = "Pause";
+                    }
                 }); 
 
                 document.getElementById("player").src = link + "&loop=1;controls=0";
