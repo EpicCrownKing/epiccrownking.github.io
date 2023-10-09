@@ -84,7 +84,7 @@ body {
     background-position: 5% 0%;
 }
 
-#start:hover {
+#start, #reset:hover {
     background-color: #DADDD8;
 }
 
@@ -112,7 +112,7 @@ body {
     font-size: 48px;
 }
 
-#todo-add
+#todo-add, .todo-remove
 {
     border-radius: 0px;
 
@@ -123,6 +123,13 @@ body {
     font-size: 32px;
 
     background-color: #1C1C1C;
+
+    transition-duration: 0.2s;
+}
+
+#todo-add, .todo-remove:hover
+{
+    color: #525252;
 }
 
 #task-name
@@ -140,19 +147,6 @@ body {
 {
     outline: none;
     border: none;
-}
-
-.todo-remove
-{
-    border-radius: 0px;
-    
-    border: none;
-
-    font-size: 32px;
-
-    color: #FAFAFF;
-
-    background-color: #1C1C1C;
 }
 
 .task-text {
