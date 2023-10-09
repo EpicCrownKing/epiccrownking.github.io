@@ -62,7 +62,7 @@ body {
     background-image: linear-gradient(to bottom right, #525252, #ECEBE4);
 }
 
-#start {
+#start, #reset {
     color: #1C1C1C;
     border-radius: 0px;
     border: none;
@@ -317,6 +317,10 @@ input, button, span, p, h1 {
 
                         document.getElementById("start").textContent = "Pause";
                     }
+                }); 
+
+                $("#reset").click(function(){
+                    timeLimitInSeconds = timeLimitInMinutes * 60;
                 }); 
 
                 document.getElementById("player").src = link + "&loop=1;controls=0";
