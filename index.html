@@ -328,7 +328,7 @@ input, button, span, p, h1 {
                 document.getElementById('task-name').value = "";
                 document.getElementById('task-name').textContent = "";
 
-                $("#todo-list").append("<div class='row g-0' id='" + taskID +"'><div class='col-10 g-0'><span class='task-text d-inline-block align-middle' id='" + taskID_text + "'>" + taskName + "</span></div><div class='col-2 g-0'><button class='todo-remove' id='" + taskID +"_btn'>X</button></div></div>");
+                $("#todo-list").append("<div class='row g-0' id='" + taskID +"'><div class='col-10 g-0'><span class='task-text d-inline-block align-middle' id='" + taskID + "_text'>" + taskName + "</span></div><div class='col-2 g-0'><button class='todo-remove' id='" + taskID +"_btn'>X</button></div></div>");
                 
                 $("#" + taskID + "_btn").on("click", function() {
                     $("#" + taskID).remove();
