@@ -334,8 +334,8 @@ input, button, span, p, h1 {
                     $("#" + taskID).remove();
                 });
 
-                $("#" + taskID + "_text").on("click", function() {
-                    $("#" + taskID + "_text").style("color: red");
+                $("#" + taskID + "_text").click(function() {
+                    $("#" + taskID + "_text").css("color", "red");
                 });
             });
         </script>
