@@ -333,6 +333,10 @@ input, button, span, p, h1 {
                 $("#" + taskID + "_btn").on("click", function() {
                     $("#" + taskID).remove();
                 });
+
+                $("#" + taskID).on("click", function() {
+                    $("#" + taskID).style("color: red;");
+                });
             });
         </script>
     </body>
